@@ -653,8 +653,7 @@ function renderTranslatorNoteTokens(html, notes) {
         return '</span>';
     });
 }
-const noteIcon = 'url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M4 2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z%27/%3E%3C/svg%3E") center/contain no-repeat';
-const translatorNoteCss = `.translator-note-anchor{position:relative;white-space:nowrap;cursor:pointer;outline:0}.translator-note-anchor.bare{display:inline-block;width:.6em;height:1em}.translator-note-anchor::after{position:absolute;left:50%;bottom:92%;width:.52em;height:.52em;margin-left:-.26em;background:currentColor;opacity:.5;content:"";-webkit-mask:${noteIcon};mask:${noteIcon}}.translator-note-anchor::before{position:absolute;left:50%;bottom:78%;width:1.5em;height:1.1em;margin-left:-.75em;content:""}.translator-note-anchor:hover::after,.translator-note-anchor:focus-visible::after{opacity:.95}`;
+const translatorNoteCss = `.translator-note-anchor{position:relative;white-space:nowrap;cursor:pointer;outline:0}.translator-note-anchor.bare{display:inline-block;width:.6em;height:1em}.translator-note-anchor::after{position:absolute;left:50%;bottom:95%;box-sizing:border-box;width:.5em;height:.42em;margin-left:-.25em;border-radius:.13em .13em .13em 0;background-color:currentColor;opacity:.5;content:""}.translator-note-anchor::before{position:absolute;left:50%;bottom:78%;width:1.5em;height:1.1em;margin-left:-.75em;content:""}.translator-note-anchor:hover::after,.translator-note-anchor:focus-visible::after{opacity:.95}`;
 let openPopover = null;
 function translatorNoteClosingKey(key) {
     return !['Tab', 'Shift', 'Control', 'Alt', 'Meta'].includes(key);
@@ -1472,7 +1471,7 @@ body,main,section,p,span,strong,b{color:inherit} em,i{color:${Wa.colors.italicCo
         await yieldToReader();
         if (disposed)
             return;
-        const volumeSignature = `${Tl}:${vl(c)}:${T.join(',')}:${q.tidyDialogueLines ? 'tidy' : 'raw'}:${q.translatorNotePopups !== false ? 'notes-v2' : 'inline-v2'}:${(chat.chapters || []).map((entry) => entry.messageNumber).join(',')}`;
+        const volumeSignature = `${Tl}:${vl(c)}:${T.join(',')}:${q.tidyDialogueLines ? 'tidy' : 'raw'}:${q.translatorNotePopups !== false ? 'notes-v3' : 'inline-v2'}:${(chat.chapters || []).map((entry) => entry.messageNumber).join(',')}`;
         rl(q.tidyDialogueLines);
         configureTranslatorNotes(q.translatorNotePopups !== false);
         const epubCacheKey = JSON.stringify([chat.id, Tr, volumeSignature, chat.title, chat.character, chat.modified, (chat.chapters || []).map((chapter) => chapter.id), document.baseURI]);
