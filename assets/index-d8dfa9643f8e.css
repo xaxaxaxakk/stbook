@@ -1240,3 +1240,57 @@ html:not(.silly-chrome-open) .reader-preview.immersive-reader .reader-footer {
     color: var(--ui-on-accent);
 }
 .reader-preview .reader-footer{padding-bottom:env(safe-area-inset-bottom)}
+.settings-tab-bar {
+    display: flex;
+    margin-bottom: 3px;
+    padding: 4px;
+    border: 1px solid var(--ui-border);
+    border-radius: 12px;
+    background: var(--ui-surface);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    gap: 6px;
+}
+
+.settings-tab-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.settings-tab-bar button {
+    flex: 0 0 auto;
+    height: 38px;
+    padding: 0 18px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--ui-text-muted);
+    font-size: 13px !important;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+        background 0.15s,
+        color 0.15s;
+}
+
+.settings-tab-bar button:hover {
+    color: var(--ui-text-soft);
+}
+
+.settings-tab-bar button.active {
+    background: var(--ui-surface-raised);
+    color: var(--ui-accent);
+    box-shadow: var(--ui-shadow-soft);
+}
+
+.settings-tab-bar button:focus-visible {
+    outline: 2px solid var(--ui-accent);
+    outline-offset: -2px;
+}
+@media (max-width: 720px) {
+    .settings-tab-bar button {
+        height: 35px;
+        padding: 0 14px;
+    }
+}
