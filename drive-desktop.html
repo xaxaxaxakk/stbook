@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="origin">
+  <meta name="sillybooks-drive-bridge" content="1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://accounts.google.com/gsi/client; connect-src 'self' https://accounts.google.com/gsi/; frame-src https://accounts.google.com/gsi/; worker-src 'self'; style-src 'self' https://accounts.google.com/gsi/style; img-src 'self' https://accounts.google.com; base-uri 'none'; object-src 'none'; form-action http://127.0.0.1:*">
+  <title>Google Drive 연결 · 실리북스</title>
+  <link rel="stylesheet" href="./drive-desktop.css?v=1">
+  <script defer src="./drive-desktop.js?v=1"></script>
+</head>
+<body>
+  <main>
+    <p class="brand">SILLYBOOKS</p>
+    <h1>Google Drive 연결</h1>
+    <p>실리북스 앱에서 사용할 Google 계정을 선택해 주세요.</p>
+    <p id="status" role="status" aria-live="polite">연결 준비 중…</p>
+    <button id="connect" type="button" disabled>Google 계정 선택</button>
+    <button id="cancel" type="button" class="secondary" hidden>취소</button>
+    <p class="note">연결 후 실리북스 앱으로 돌아가 주세요.</p>
+  </main>
+</body>
+</html>
